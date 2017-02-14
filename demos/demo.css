@@ -1,0 +1,75 @@
+.audio-player {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+	cursor: default;
+	background: #eee;
+	margin: 20px;
+}
+.audio-player__buttons {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+.audio-player__playpause, .audio-player__play, .audio-player__pause, .audio-player__stop {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 18px;
+	margin-right: 10px;
+	cursor: pointer;
+	background: #aaa;
+}
+.audio-player__playpause:before {
+	content: "pplay";
+}
+.audio-player__play:before {
+	content: "play";
+}
+.audio-player__pause:before {
+	content: "pause";
+}
+.audio-player__stop:before {
+	content: "stop";
+}
+.audio-player__track {
+	position: relative;
+	height: 14px;
+	cursor: pointer;
+	background: #000;
+	flex-grow: 1;
+}
+.audio-player__track-progress, .audio-player__track-loaded {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+}
+.audio-player__track-loaded {
+	background: greeb;
+}
+.audio-player__track-progress {
+	background: red;
+}
+.audio-player__track-spin {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6px;
+	height: 18px;
+	margin-top: -2px;
+	margin-bottom: -2px;
+	margin-left: -3px;
+	background: blue;
+}
+.audio-player__times {
+	margin-left: 10px;
+	white-space: nowrap;
+}
+.audio-player__time-progress, .audio-player__time-leave, .audio-player__time-total {
+	display: inline-block;
+	flex-shrink: 0;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "SimpleAudioJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/KiyoshiSaundo/SimpleAudioJS",
+  "main": "dist/simpleaudiojs.min.js",
+  "author": "",
+  "authors": [
+    "Evgeniy Kuzovlev <evgeniykuzovlev@outlook.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}

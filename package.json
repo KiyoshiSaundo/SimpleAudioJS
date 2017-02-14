@@ -1,0 +1,12 @@
+{
+  "name": "SimpleAudioJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/KiyoshiSaundo/SimpleAudioJS",
+  "main": "dist/simpleaudiojs.min.js",
+  "author": "Evgeniy Kuzovlev",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-minify": "0.0.11",
+    "gulp-watch": "^4.3.5"
+  }
+}
