@@ -20,13 +20,15 @@
 	/\
 	<div class="audio-player__time-total" data-total-time>00:00</div>\
 </div>',
-			stopOther: true
+			stopOther: true,
+			playNext: false
 		};
 		if (arguments[0] && typeof arguments[0] === "object") {
 			this.params = helpers.extendDefaults(this.params, arguments[0]);
 		}
 
 		this.instances = init.call(this, this.params);
+		this.current = 0;
 	};
 
 	SimpleAudioJSItem = function(element, params) {
@@ -50,6 +52,7 @@
 		this.progressSpin = wrapper.querySelector('[data-progress-spin]');
 
 		this.stopOther = params.stopOther;
+		this.playNext = params.playNext;
 	};
 
 	SimpleAudioJSItem.prototype = {
@@ -67,6 +70,17 @@
 			this.element.pause();
 			this.element.currentTime = 0;
 			this.pauseHandler(); // need if paused
+		},
+		ended: function() {
+			if (this.playNext) {
+				var audioElements = document.getElementsByTagName('audio');
+				for (var i = 0, ii = audioElements.length; i < ii; i++) {
+					if (audioElements[i] == this.element && audioElements[i+1]) {
+						this.stop();
+						audioElements[i+1].play();
+					}
+				}
+			}
 		},
 		playHandler: function() {
 			this.pauseOther();
@@ -255,6 +269,9 @@
 		});
 		audio.wrapper.addEventListener('dragstart', function(e) {
 			return false;
+		});
+		audio.element.addEventListener('ended', function(e) {
+			audio.ended.call(audio);
 		});
 	}
 
